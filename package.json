@@ -1,0 +1,17 @@
+{
+  "name": "kahootexport",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "author": "Flynn <flynnwebdev@outlook.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "dotenv": "^8.2.0",
+    "kahoot-api": "^0.10.2",
+    "xlsx": "^0.15.5"
+  }
+}
