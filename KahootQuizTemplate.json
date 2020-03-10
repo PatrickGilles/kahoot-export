@@ -1,0 +1,71 @@
+{
+    "title": "API Test Kahoot",
+    "quizType": "quiz",
+    "type": "quiz",    
+    "questions": [
+        {
+            "type": "quiz",
+            "layout": "CLASSIC",
+            "question": "Why should we use controlled elements?",
+            "time": 20000,
+            "choices": [
+                {
+                    "answer": "React won't work without it.",
+                    "correct": false
+                },
+                {
+                    "answer": "Works faster",
+                    "correct": false
+                },
+                {
+                    "answer": "One source of truth - the state",
+                    "correct": true
+                },
+                {
+                    "answer": "One source of truth - the element",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "type": "quiz",
+            "layout": "CLASSIC",
+            "question": "In React apps, data flows from ___.",
+            "time": 20000,
+            "choices": [
+                {
+                    "answer": "parent to child only",
+                    "correct": true
+                },
+                {
+                    "answer": "child to parent only ",
+                    "correct": false
+                },
+                {
+                    "answer": "child to parent and parent to child ",
+                    "correct": false
+                },
+                {
+                    "answer": "none of the above - data does not flow ",
+                    "correct": false
+                }
+            ]
+        },
+        {
+            "type": "quiz",
+            "layout": "TRUE_FALSE",
+            "question": "State can be changed directly",
+            "time": 10000,
+            "choices": [
+                {
+                    "answer": "False",
+                    "correct": true
+                },
+                {
+                    "answer": "True",
+                    "correct": false
+                }
+            ]
+        }
+    ]
+}

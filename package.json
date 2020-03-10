@@ -6,7 +6,8 @@
   "author": "Flynn <flynnwebdev@outlook.com>",
   "license": "MIT",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "upload": "node upload.js"
   },
   "dependencies": {
     "axios": "^0.19.2",
