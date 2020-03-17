@@ -2,6 +2,7 @@ import axios from "axios";
 import XLSX from "xlsx";
 import dotenv from "dotenv";
 import fs from "fs";
+import kahoot from "kahoot-api"
 
 dotenv.config();
 
@@ -29,21 +30,25 @@ function uploadKahoot(quiz) {
   return axios.post(`${endpoint}/kahoots`, quiz);
 }
 
-let jsonQuiz = fs.readFileSync("./KahootQuizTemplate.json");
-let quiz = JSON.parse(jsonQuiz);
+// let jsonQuiz = fs.readFileSync("./KahootQuizTemplate.json");
+let quiz = {
+  quizType: "quiz",
+  type: "quiz"
+};
 
 let wb = XLSX.readFile(filename);
 let jsSheet = XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]]);
 
-// Convert sheet JSON to correct JSON format for Kahoot
+// Transform Excel JSON to Kahoot API JSON
 let rownum = 6;
 let path = filename.split(".");
 path.pop();
 quiz.title = path.join("").split("/").pop();
 quiz.questions = [];
 
+// while the current question has answers (cell 7 exists)
+// (once we hit a row with no answers, there are no more questions to process)
 while (jsSheet[rownum].__EMPTY_7) {
-  // while the current question has answers
   let row = jsSheet[rownum++];
   let question = {
     type: "quiz",
