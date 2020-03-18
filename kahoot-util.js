@@ -60,19 +60,45 @@ async function getKahootUser() {
   return { user, password };
 }
 
+function parse_action(args) {
+  switch (args[0]) {
+    case "get":
+      if (args.length != 2) help("Action 'get' requires a Kahoot UUID");
+      console.log("Action: get");
+      break;
+    case "get-all":
+      console.log("Action: get-all");
+      break;
+    case "put":
+      if (args.length != 2)
+        help("Action 'put' requires a path to a .xlsx file");
+      console.log("Action: put");
+      break;
+    case "put-all":
+      console.log("Action: put-all");
+      break;
+    default:
+      help(`Invalid action: ${args[0]}`);
+  }
+}
+
 dotenv.config();
 process.argv.shift();
 let args = process.argv.filter(x => !x.includes("kahoot-util"));
 
 getKahootUser()
   .then(details => kahoot.authenticate(details.user, details.password))
-  .then(() => kahoot.get("8062ad52-49af-485d-93fc-5534925b087f"))
-  .then(res => {
-    console.log(res.data);
-    process.exit();
-  })
-  .catch(err => console.error(err));
-
+  .then(parse_action(args))
+  // .then(() => kahoot.get("z8062ad52-49af-485d-93fc-5534925b087f"))
+  // .then(res => {
+  //   console.log(res.data);
+  //   process.exit();
+  // })
+  .catch(err =>
+    console.error(
+      "Login failed! Please check Kahoot username (email) and password."
+    )
+  );
 
 // switch (args[0]) {
 //   case "get":

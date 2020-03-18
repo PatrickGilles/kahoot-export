@@ -18,7 +18,6 @@ function authenticate(username, password) {
         headers: { Authorization: `Bearer ${res.data.access_token}` }
       });
     })
-    .catch(err => console.error(err));
 }
 
 // Get a specific Kahoot by UUID
